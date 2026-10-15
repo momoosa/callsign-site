@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+  Callsign privacy policy.
+  This page is self-contained (no external files) so the iOS app can ship an identical copy
+  as Callsign/Resources/privacy.html and show it when getcallsign.app can't be reached.
+  When you change this file, copy it over the app's copy too.
+-->
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy · Callsign</title>
+  <meta name="description" content="Callsign reads your calendar on your iPhone to choose your sign. Your calendar never leaves the phone. Anonymous usage statistics only if you turn them on.">
+  <style>
+    :root {
+      --ink: #0B0C0E;
+      --ink-62: rgba(11, 12, 14, .62);
+      --ink-42: rgba(11, 12, 14, .42);
+      --rule: rgba(11, 12, 14, .09);
+      --canvas: #F4F6F7;
+      --card: rgba(255, 255, 255, .7);
+      --teal: #0A7EA4;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #F4F6F7;
+        --ink-62: rgba(244, 246, 247, .68);
+        --ink-42: rgba(244, 246, 247, .45);
+        --rule: rgba(244, 246, 247, .12);
+        --canvas: #0B0C0E;
+        --card: rgba(255, 255, 255, .06);
+        --teal: #5ED2F0;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: -apple-system, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+    .brand { font-weight: 800; letter-spacing: -.02em; color: var(--ink); text-decoration: none; }
+    .caps { font-size: 11.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-42); }
+    h1 {
+      font-family: -apple-system, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+      font-size: clamp(36px, 7vw, 52px); font-weight: 800; letter-spacing: -.045em; line-height: 1;
+      margin: 14px 0 12px;
+    }
+    h2 {
+      font-family: -apple-system, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+      font-size: 22px; font-weight: 800; letter-spacing: -.03em;
+      margin: 40px 0 8px; padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    h3 { font-size: 16px; font-weight: 700; letter-spacing: -.015em; margin: 20px 0 4px; }
+    p, li { font-size: 16px; line-height: 1.6; color: var(--ink-62); }
+    p { margin: 0 0 12px; }
+    ul { margin: 0 0 12px; padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--ink); font-weight: 650; }
+    a { color: var(--teal); }
+    .summary {
+      background: var(--card); border: 1px solid var(--rule); border-radius: 22px;
+      padding: 18px 20px; margin: 24px 0 8px;
+    }
+    .summary ul { margin: 0; }
+    .meta { font-size: 13.5px; color: var(--ink-42); }
+    footer { margin-top: 48px; font-size: 13.5px; color: var(--ink-42); }
+  </style>
+</head>
+<body>
+<main>
+  <a class="brand" href="https://getcallsign.app">Callsign</a>
+
+  <h1>Privacy policy</h1>
+  <p class="meta">Last updated 15 October 2026</p>
+
+  <div class="summary">
+    <p><strong>The short version</strong></p>
+    <ul>
+      <li>Callsign reads your calendar on your iPhone to choose your sign. <strong>Your calendar never leaves the phone.</strong></li>
+      <li>There’s no account and no Callsign server. We never receive your calendar, your name or anything you type.</li>
+      <li>No ads, no tracking, and nothing is sold.</li>
+      <li>Anonymous usage statistics (which signs and features get used) are sent <strong>only if you turn them on</strong>. They’re off unless you do.</li>
+      <li>The optional mic meter reads only how loud you are. Nothing is recorded.</li>
+      <li>If you pair the Mac app, it looks only at your call apps, and the two talk directly over your own network, not through us.</li>
+    </ul>
+  </div>
+
+  <h2>Who we are</h2>
+  <p>Callsign is an app for iPhone, with a companion app for Mac, that shows a sign to people near your desk, saying whether you’re free or in a call. In this policy, “we” means the maker of Callsign. You can reach us at <a href="mailto:privacy@getcallsign.app">privacy@getcallsign.app</a>.</p>
+
+  <h2>What the app uses, and why</h2>
+
+  <h3>Your calendars</h3>
+  <p>With your permission, Callsign reads the calendars on your iPhone, including Google, Outlook and other accounts you’ve added in Settings. For each event it reads the time, title, whether it’s marked as busy or free, whether you organised it, the number of people invited and their first names, and the location, link and notes, to find video-call links (such as Zoom, Google Meet or Teams) and any agenda.</p>
+  <p>This is used only to work out what your sign says and when it changes, and to draw the signs that use these details (for example, how many people are in the call). It’s read on your iPhone, as needed, and isn’t copied anywhere else. You choose which calendars count, and you can turn calendar access off at any time in the iPhone’s Settings, then set your sign by hand instead.</p>
+  <p><strong>What people near your desk can see:</strong> your sign is meant to be read by others. Some signs show the event’s title or the people in it (for example “Design review · Google Meet”). If your meeting titles are private, choose a sign or wording that doesn’t show them, or set your sign by hand.</p>
+
+  <h3>Your first name</h3>
+  <p>If you enter it, some signs use your first name (for example “Sam is in a call”). It’s stored on your iPhone only. You can change or remove it in Settings.</p>
+
+  <h3>The microphone (optional)</h3>
+  <p>In laptop mode you can turn on a mic meter that shows how loud you are and warns you if you talk while muted. Only the sound level is read, several times a second. No audio is recorded, stored or sent anywhere. It’s off until you turn it on, and you can turn off microphone access at any time in the iPhone’s Settings.</p>
+
+  <h3>Motion</h3>
+  <p>A few signs react to how the phone is held: the sand timer follows its tilt, the water in Slosh moves with it, and the snow globe stirs when you shake it. This movement is used in the moment and never stored.</p>
+
+  <h3>Widgets and Live Activities</h3>
+  <p>If you add Callsign’s widgets or allow Live Activities, your current sign, and during a call the event’s title and end time, appear on your Lock Screen, in StandBy and in the Dynamic Island. These are drawn by your iPhone from data on the phone. Anyone who can see your phone can see them.</p>
+
+  <h3>The Mac app (optional)</h3>
+  <p>If you pair the Callsign Mac app, it notices when you’re in a Zoom, Google Meet or Microsoft Teams call and tells your iPhone, so your sign goes up. To do this it checks which apps are using the microphone (never what they hear). With the Accessibility permission you give it in System Settings, it reads those call apps’ windows: the meeting’s name where the app shows it, whether you’re muted, your camera is on or your hand is raised, and, for Google Meet, the address of the browser window’s page, to tell a Meet call from other pages. It doesn’t read other apps or anything you type. Its keyboard shortcuts are registered with macOS, so it only ever sees those keys.</p>
+  <p>Your Mac sends your iPhone the call app’s name, the meeting’s name, when the call started, and whether you’re muted, your camera is on, you’re sharing your screen or your hand is raised. Your iPhone can send back mute, camera, raise hand and leave, and tells your Mac what the sign says so it can show it in the menu bar. They talk directly over your own network. Nothing passes through a Callsign server.</p>
+
+  <h3>Your settings</h3>
+  <p>Your choices (which sign, your wording, which calendars count and so on) are saved on your iPhone, shared only with Callsign’s own widgets on the same phone. If your iPhone is backed up to iCloud or a computer, they’re included in that backup, like any app’s settings.</p>
+
+  <h2>Anonymous usage statistics (optional)</h2>
+  <p><strong>This is off unless you turn it on</strong>, during setup or in Settings › Privacy › Share anonymous usage. You can turn it off again at any time.</p>
+
+  <h3>Why</h3>
+  <p>To learn which signs people actually use, where setting up gets confusing and which packs are worth making more of, so we can decide what to build next. It isn’t used for advertising, and it’s never sold or shared with anyone else.</p>
+
+  <h3>What’s sent</h3>
+  <ul>
+    <li>When you choose, put up, customise or tap a sign: the sign’s name and pack (for example “Candle”, “Home”).</li>
+    <li>How far you get through setting up: the step number, whether you allowed calendar access, and whether you added a name (yes or no, never the name itself).</li>
+    <li>When the Callsign Pro offer is shown, and which product you buy.</li>
+    <li>Which way the phone is being used: tent, laptop, open or closed.</li>
+    <li>About the phone and app: device model, iOS version, app version, language, region, time zone, screen size, light or dark mode, and simple usage counts such as how many days the app has been used.</li>
+  </ul>
+
+  <h3>What’s never sent</h3>
+  <ul>
+    <li>Anything from your calendar: no event titles, times, people, links, notes or calendar names.</li>
+    <li>Anything you type: not your name, and not your sign’s wording.</li>
+    <li>Your Apple Account, email, phone number, contacts, location, or anything from the microphone or motion sensors.</li>
+  </ul>
+
+  <h3>How it stays anonymous</h3>
+  <p>When you turn sharing on, the app makes up a random ID. It isn’t your phone’s ID or anything else that could identify you. Before anything is sent, it’s scrambled with a one-way hash on your phone, so the statistics can count how many people do something without knowing who they are. When you turn sharing off, the ID is deleted; if you turn it on again later, you start again as someone new. We look at the statistics only as totals (for example, “how many people put up the Candle this week”) and never try to identify anyone.</p>
+
+  <h3>Who handles it</h3>
+  <p>The statistics are sent to <a href="https://telemetrydeck.com">TelemetryDeck</a>, a privacy-focused analytics service based in Germany that stores data in the EU, which processes them on our behalf. Only we can see them. Our legal basis is your consent, which you give by turning sharing on and can take back by turning it off.</p>
+
+  <h2>Purchases</h2>
+  <p>Callsign Pro and sign packs are bought through the App Store. Apple handles payment; we never see your payment details, name or Apple Account. The app checks what you’ve bought with Apple, on your iPhone. Apple’s privacy policy covers how Apple handles purchases.</p>
+
+  <h2>What we don’t do</h2>
+  <ul>
+    <li>We don’t run a server for the app. Apart from the anonymous statistics above, if you turn them on, the app doesn’t send anything to us or to anyone else.</li>
+    <li>We don’t use advertising or tracking, in the app or on this website, and there are no analytics on this website.</li>
+    <li>We don’t create accounts, and we don’t sell or share personal data.</li>
+  </ul>
+
+  <h2>Information from Apple</h2>
+  <p>If you’ve chosen to share analytics with app developers in your iPhone’s settings, Apple may send us crash reports and statistics about how the app performs. These come to us through Apple and don’t identify you. You can turn this off in Settings › Privacy &amp; Security › Analytics &amp; Improvements.</p>
+
+  <h2>This website</h2>
+  <p>getcallsign.app is a plain website. It doesn’t use cookies, analytics or trackers, and it doesn’t load anything from other sites. Like any website, the company that hosts it may keep standard server logs (such as IP address, browser type and the pages requested) for security and to keep the site running. We don’t use these to identify anyone.</p>
+
+  <h2>If you email us</h2>
+  <p>If you contact us, we’ll use your email address and what you send only to reply and help you, and we’ll delete it when it’s no longer needed for that.</p>
+
+  <h2>Children</h2>
+  <p>Callsign is a work tool and isn’t aimed at children. Because the app doesn’t collect personal data, it doesn’t collect any from children either.</p>
+
+  <h2>Your rights</h2>
+  <p>Under UK and EU data protection law you have rights over your personal data, including to access, correct or delete it. Because Callsign keeps everything on your iPhone and we don’t receive it, you’re in control of it directly: change it in the app, turn off access in the iPhone’s Settings, or delete the app to remove everything it stored. Anonymous usage statistics can’t be traced back to you, so we can’t pick out yours, but you can stop them at any time by turning sharing off, which also deletes the random ID. For anything else, email <a href="mailto:privacy@getcallsign.app">privacy@getcallsign.app</a>.</p>
+  <p>If you’re in the UK and unhappy with how we’ve handled your data, you can complain to the Information Commissioner’s Office at <a href="https://ico.org.uk">ico.org.uk</a>. If you’re in the EU, you can contact your local data protection authority.</p>
+
+  <h2>Changes</h2>
+  <p>If we change how Callsign handles data, we’ll update this page and the date at the top. If the app ever starts sending anything new off your iPhone, we’ll tell you in the app and ask first.</p>
+
+  <footer>Callsign · <a href="https://getcallsign.app">getcallsign.app</a></footer>
+</main>
+</body>
+</html>
