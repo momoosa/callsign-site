@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+  Callsign support. Self-contained, styled like the privacy policy.
+  This is the App Store's support URL, so keep a way to contact us on it.
+-->
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support · Callsign</title>
+  <meta name="description" content="Callsign reads your calendar on your iPhone to choose your sign. Your calendar never leaves the phone. Anonymous usage statistics only if you turn them on.">
+  <style>
+    :root {
+      --ink: #0B0C0E;
+      --ink-62: rgba(11, 12, 14, .62);
+      --ink-42: rgba(11, 12, 14, .42);
+      --rule: rgba(11, 12, 14, .09);
+      --canvas: #F4F6F7;
+      --card: rgba(255, 255, 255, .7);
+      --teal: #0A7EA4;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #F4F6F7;
+        --ink-62: rgba(244, 246, 247, .68);
+        --ink-42: rgba(244, 246, 247, .45);
+        --rule: rgba(244, 246, 247, .12);
+        --canvas: #0B0C0E;
+        --card: rgba(255, 255, 255, .06);
+        --teal: #5ED2F0;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: -apple-system, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+    .brand { font-weight: 800; letter-spacing: -.02em; color: var(--ink); text-decoration: none; }
+    .caps { font-size: 11.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-42); }
+    h1 {
+      font-family: -apple-system, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+      font-size: clamp(36px, 7vw, 52px); font-weight: 800; letter-spacing: -.045em; line-height: 1;
+      margin: 14px 0 12px;
+    }
+    h2 {
+      font-family: -apple-system, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+      font-size: 22px; font-weight: 800; letter-spacing: -.03em;
+      margin: 40px 0 8px; padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    h3 { font-size: 16px; font-weight: 700; letter-spacing: -.015em; margin: 20px 0 4px; }
+    p, li { font-size: 16px; line-height: 1.6; color: var(--ink-62); }
+    p { margin: 0 0 12px; }
+    ul { margin: 0 0 12px; padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--ink); font-weight: 650; }
+    a { color: var(--teal); }
+    .summary {
+      background: var(--card); border: 1px solid var(--rule); border-radius: 22px;
+      padding: 18px 20px; margin: 24px 0 8px;
+    }
+    .summary ul { margin: 0; }
+    .meta { font-size: 13.5px; color: var(--ink-42); }
+    footer { margin-top: 48px; font-size: 13.5px; color: var(--ink-42); }
+  </style>
+</head>
+<body>
+<main>
+  <a class="brand" href="https://getcallsign.app">Callsign</a>
+
+  <h1>Support</h1>
+  <p class="meta">Questions, problems or ideas: email <a href="mailto:support@getcallsign.app">support@getcallsign.app</a> and we’ll get back to you, usually within a couple of days.</p>
+
+  <h2>Getting started</h2>
+  <h3>How does the sign know I’m in a call?</h3>
+  <p>Callsign reads the calendars on your iPhone. When an event starts, the sign goes up; when it ends, it says you’re free. Events marked as free in your calendar don’t count. Choose which calendars count in <strong>⋯ › Calendars</strong>.</p>
+  <h3>My sign didn’t change</h3>
+  <ul>
+    <li>Check Callsign has calendar access in the iPhone’s <strong>Settings › Privacy &amp; Security › Calendars</strong>.</li>
+    <li>Make sure the calendar the event is in is switched on in <strong>⋯ › Calendars</strong>. Google and Outlook calendars need adding to the iPhone first, in <strong>Settings › Apps › Calendar › Calendar Accounts</strong>.</li>
+    <li>Set it by hand any time: tap the bar at the bottom of the gallery and choose <strong>Set the sign for a while…</strong>.</li>
+  </ul>
+  <h3>Using it on iPhone Duo</h3>
+  <p>Fold your Duo into a tent and the sign faces the room on the outer display. Fold it to 90° like a laptop and the sign stands on the top half, with the time left and call controls below. On other iPhones, stand the phone on your desk and press play to put the sign up full screen.</p>
+
+  <h2>Callsign for Mac</h2>
+  <h3>Pairing</h3>
+  <p>Open Callsign for Mac, then on your iPhone choose <strong>⋯ › Pair with Mac</strong>. Both need to be on the same network.</p>
+  <h3>Which call apps work?</h3>
+  <p>Zoom, Microsoft Teams, and Google Meet in Safari, Chrome, Arc, Edge, Brave or Firefox. Callsign for Mac needs the Accessibility permission (<strong>System Settings › Privacy &amp; Security › Accessibility</strong>) to mute, turn the camera on or off, raise your hand or leave. Controlling calls from your phone is part of Callsign Pro.</p>
+
+  <h2>Purchases</h2>
+  <h3>Restoring purchases</h3>
+  <p>Callsign Pro and sign packs are one-time purchases, tied to your Apple Account. On a new phone, tap <strong>Get Pro</strong>, then <strong>Restore purchases</strong>.</p>
+  <h3>Refunds</h3>
+  <p>Purchases are handled by Apple. To ask for a refund, go to <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+  <h2>Looking after your screen</h2>
+  <p>A sign that stays up all day can mark an OLED screen. Choose a sign’s <strong>Minimal</strong> look to keep most of the screen dark, and keep the screen saver and slow drift on in <strong>Settings</strong>.</p>
+
+  <h2>Privacy</h2>
+  <p>Your calendar stays on your iPhone. Read the full <a href="../privacy/">privacy policy</a>.</p>
+
+  <footer>Callsign · <a href="https://getcallsign.app">getcallsign.app</a></footer>
+</main>
+</body>
+</html>
