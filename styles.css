@@ -1,0 +1,476 @@
+/* ==========================================================================
+   Colours and type
+   Neutrals are always the ink colour at some opacity, never a separate grey.
+   ========================================================================== */
+
+:root {
+  --ink: #0B0C0E;
+  --ink-62: rgba(11, 12, 14, .62);   /* body text */
+  --ink-50: rgba(11, 12, 14, .5);    /* fine print */
+  --ink-42: rgba(11, 12, 14, .42);   /* caps labels */
+  --canvas: #F4F6F7;
+  --white: #fff;
+
+  --teal: #0A7EA4;
+  --teal-dark: #05435A;
+  --sky: #5ED2F0;
+  --red: #D93A2B;
+  --amber: #D0682E;
+  --green: #1E9E57;
+
+  --glass: rgba(255, 255, 255, .62);
+  --hairline: rgba(255, 255, 255, .85);
+
+  --font-display: -apple-system, 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, sans-serif;
+  --font-text: -apple-system, 'SF Pro Text', 'SF Pro Display', 'Inter', system-ui, sans-serif;
+  --font-mono: ui-monospace, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: var(--teal); text-decoration: none; }
+a:hover { color: var(--teal-dark); }
+
+h1, h2, p { margin: 0; }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(46px, 6.4vw, 76px);
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: .98;
+  text-wrap: balance;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.4vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+}
+
+p { font-size: 15px; line-height: 1.55; color: var(--ink-62); text-wrap: pretty; }
+
+.caps {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-42);
+}
+
+.small { font-size: 13.5px; line-height: 1.5; color: var(--ink-62); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 13px 20px;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  transition: filter 220ms ease;
+}
+.btn:hover { color: var(--white); filter: brightness(1.3); }
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.page { position: relative; min-height: 100vh; overflow: hidden; }
+
+/* The two soft colour blobs behind the page */
+.blob { position: absolute; border-radius: 50%; filter: blur(110px); pointer-events: none; }
+.blob-blue { left: -300px; top: -260px; width: 900px; height: 800px; background: rgba(34, 167, 208, .42); }
+.blob-peach { right: -360px; top: 220px; width: 800px; height: 760px; background: rgba(255, 138, 91, .26); }
+
+/* max-widths below are for the content, not counting padding */
+section, footer, .nav-inner { box-sizing: content-box; }
+
+section {
+  position: relative;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+.section-head { display: flex; flex-direction: column; gap: 10px; max-width: 640px; }
+.stack { display: flex; flex-direction: column; gap: 32px; }
+
+/* Responsive grids: as many columns as fit at the given minimum width */
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min, 300px)), 1fr)); }
+.split { display: grid; gap: 40px; align-items: center; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+
+.nav { position: sticky; top: 0; z-index: 5; padding: 14px 18px; }
+
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 8px 8px 20px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .58);
+  backdrop-filter: blur(30px) saturate(1.8);
+  -webkit-backdrop-filter: blur(30px) saturate(1.8);
+  box-shadow: inset 0 0 0 1px var(--hairline), 0 18px 42px rgba(8, 40, 52, .1);
+}
+
+.brand { font-family: var(--font-display); font-size: 19px; font-weight: 800; letter-spacing: -.03em; }
+
+.nav-links { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 600; flex-wrap: wrap; }
+.nav-links a:not(.btn) { color: var(--ink-62); }
+.nav-links a:not(.btn):hover { color: var(--ink); }
+@media (max-width: 560px) { .nav-links a:not(.btn) { display: none; } }
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.card {
+  padding: 22px;
+  border-radius: 26px;
+  background: var(--glass);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 4px 18px rgba(11, 40, 50, .07);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-blue {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 30px;
+  background: linear-gradient(168deg, #2FB6DC 0%, #0A7EA4 52%, #064A62 100%);
+  box-shadow: 0 18px 44px rgba(10, 80, 105, .28);
+  color: var(--white);
+}
+/* the soft highlight in the top-right corner */
+.card-blue::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  border-radius: 99px;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .34), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.card-blue > * { position: relative; }
+
+/* ==========================================================================
+   Artwork scaled to fit (see "Scale to fit" in js/main.js)
+   ========================================================================== */
+
+[data-fit] { position: relative; --k: 1; }
+[data-fit] > .art { position: absolute; left: 0; top: 0; transform-origin: 0 0; transform: scale(var(--k)); }
+
+.duo > .art { width: 760px; height: 600px; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  padding: 56px 24px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-copy { display: flex; flex-direction: column; gap: 22px; }
+.hero-copy .lead { font-size: 19px; line-height: 1.45; max-width: 480px; }
+.hero-copy .fine { font-size: 13.5px; color: var(--ink-50); }
+
+.hero-visual { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+/* Blurred desk photo behind the phone */
+.hero-photo {
+  position: absolute;
+  left: -40px;
+  right: -40px;
+  top: 6%;
+  bottom: 18%;
+  border-radius: 36px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 80%, transparent 100%);
+}
+.hero-photo img,
+.hero-photo .placeholder {
+  position: absolute;
+  inset: -24px;
+  width: calc(100% + 48px);
+  height: calc(100% + 48px);
+  object-fit: cover;
+  filter: blur(14px) saturate(1.1);
+  opacity: .85;
+  background: #f2f1ef;
+}
+.hero-photo .placeholder-label {
+  position: absolute;
+  left: 14px;
+  top: 40%;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .7);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  color: var(--ink-50);
+}
+
+.hero .duo {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 760 / 560;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.hero-status {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .62);
+  box-shadow: inset 0 0 0 1px var(--hairline), 0 5px 16px rgba(11, 40, 50, .09);
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hero-status .dot { width: 8px; height: 8px; border-radius: 99px; }
+
+.hero-dots { position: relative; display: flex; gap: 6px; }
+.hero-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: rgba(11, 12, 14, .18);
+  cursor: pointer;
+  transition: width 220ms ease, background 220ms ease;
+}
+.hero-dots button[aria-current="true"] { width: 22px; background: var(--ink); }
+
+/* ==========================================================================
+   "Three ways to stand it up"
+   ========================================================================== */
+
+.pose-art { position: relative; aspect-ratio: 760 / 520; overflow: hidden; }
+
+/* Duo held sideways, playing the screen saver */
+.landscape-art > .art { width: 760px; height: 520px; }
+.landscape-phone {
+  position: absolute;
+  left: 30px;
+  top: 99px;
+  width: 700px;
+  height: 322px;
+  padding: 11px;
+  border-radius: 66px;
+  background: linear-gradient(160deg, #E6E1DA, #A9A39A 50%, #6E6960);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 30px 60px rgba(8, 40, 52, .28);
+}
+.landscape-screen { position: relative; width: 100%; height: 100%; border-radius: 56px; background: #000; overflow: hidden; }
+.landscape-screen .screensaver {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 537px;
+  height: 380px;
+  margin-left: -268.5px;
+  transform-origin: 50% 0;
+  transform: scale(.789);
+}
+.landscape-screen .camera {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 30px;
+  height: 104px;
+  margin-top: -52px;
+  border-radius: 99px;
+  background: #000;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .06);
+}
+.landscape-screen .glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 56px;
+  background: linear-gradient(115deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 35%);
+}
+
+/* iPhone on its side in StandBy */
+.standby-art { display: flex; align-items: center; justify-content: center; }
+.standby-phone {
+  width: 88%;
+  aspect-ratio: 2.1;
+  padding: 5px;
+  border-radius: 34px;
+  background: linear-gradient(160deg, #F4F5F6, #B9BDC1 55%, #7E8388);
+  box-shadow: 0 18px 44px rgba(8, 40, 52, .22);
+}
+.standby-screen {
+  height: 100%;
+  padding: 14px;
+  border-radius: 29px;
+  background: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.standby-widget {
+  padding: 12px;
+  border-radius: 18px;
+  background: #1C1D20;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.standby-widget .kicker { font-size: 10.5px; font-weight: 700; letter-spacing: .13em; color: #FF6B5A; }
+.standby-widget .status { font-family: var(--font-display); font-size: 28px; font-weight: 800; letter-spacing: -.04em; }
+.standby-clock { display: flex; flex-direction: column; justify-content: center; color: #FF6B5A; }
+.standby-clock .time { font-family: var(--font-display); font-size: 40px; font-weight: 800; letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.standby-clock .date { font-size: 13.5px; font-weight: 600; }
+
+/* ==========================================================================
+   "The sign changes on its own" timeline
+   ========================================================================== */
+
+.timeline { display: flex; flex-direction: column; gap: 10px; }
+.timeline-row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: center; }
+.timeline-row time { font-family: var(--font-display); font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.timeline-sign {
+  padding: 18px 22px;
+  border-radius: 24px;
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.timeline-sign b { font-family: var(--font-display); font-size: 28px; font-weight: 800; letter-spacing: -.038em; }
+.timeline-sign span { font-size: 13.5px; font-weight: 600; }
+
+/* ==========================================================================
+   Sign gallery
+   ========================================================================== */
+
+.sign-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.sign-grid-small { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); }
+
+.sign-card { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.sign-grid-small .sign-card { gap: 8px; }
+.sign-card figcaption { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; }
+.sign-card figcaption b { font-weight: 700; }
+.sign-card figcaption span { color: var(--ink-50); }
+
+.sign {
+  aspect-ratio: 537 / 380;
+  overflow: hidden;
+  border-radius: calc(30px * var(--k));
+  box-shadow: 0 30px 80px rgba(8, 40, 52, .18);
+}
+.sign-grid-small .sign { box-shadow: 0 6px 20px rgba(11, 40, 50, .1); }
+.sign > .art { width: 537px; height: 380px; overflow: hidden; color: var(--white); }
+
+/* ==========================================================================
+   Mac app promo
+   ========================================================================== */
+
+.mac {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 5vw, 56px);
+  border-radius: 30px;
+  background: linear-gradient(168deg, #123543, #061219);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 32px;
+  align-items: center;
+  box-shadow: 0 14px 34px rgba(6, 26, 34, .3);
+}
+.mac .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .13em; color: var(--sky); }
+.mac p { max-width: 420px; color: rgba(255, 255, 255, .72); }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  padding: 8px 14px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.mac .duo { width: 100%; max-width: 560px; aspect-ratio: 760 / 600; justify-self: center; }
+
+/* ==========================================================================
+   Pricing
+   ========================================================================== */
+
+.price-card { padding: 24px; gap: 12px; }
+.price { font-family: var(--font-display); font-size: 46px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+.price small { font-size: 19px; font-weight: 600; letter-spacing: -.02em; color: var(--ink-50); }
+.price-card ul { margin: 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.6; color: var(--ink-62); }
+.card-blue ul { color: rgba(255, 255, 255, .85); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  position: relative;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(11, 12, 14, .09);
+  font-size: 13.5px;
+  color: var(--ink-50);
+}
+footer nav { display: flex; gap: 20px; }

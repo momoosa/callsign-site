@@ -1,15 +1,38 @@
 # Callsign landing page
 
-`index.html` is self-contained: fonts, styles, scripts and animations are inlined, so it needs no build step and no other files.
+Plain HTML, CSS and JavaScript. No build step, no framework, no dependencies.
 
-## GitHub Pages
-1. Create a repo (or use an existing one) and add `index.html` at the root, or in `/docs`.
-2. Settings → Pages → Source: "Deploy from a branch", pick the branch and folder.
-3. The site appears at `https://<user>.github.io/<repo>/`.
+```
+index.html          all the page copy and structure
+styles.css          colours, type and layout
+js/signs.js         the animated door signs in the gallery
+js/duo.js           the 3D iPhone Duo mockup and its screens
+js/screensaver.js   the bouncing "screen saver" sign
+js/main.js          wiring: animation loop, scaling, hero carousel
+```
 
-Any static host works the same way (Netlify, Vercel, Cloudflare Pages, S3): upload `index.html`.
+## Preview locally
+
+```bash
+python3 -m http.server 8800
+```
+
+Then open http://localhost:8800. Opening `index.html` directly from Finder works too.
+
+## Common edits
+
+- **Copy:** edit the text in `index.html`. Each section has a `<!-- ==== Name -->` marker.
+- **Colours and fonts:** the variables at the top of `styles.css`.
+- **Hero carousel:** the `<button>`s under `hero-dots` in `index.html`. Each one sets the sign shown on the phone, the colour of the status dot and the caption.
+- **Gallery signs:** each `<figure class="sign-card">` in `index.html`. `data-sign` picks the artwork and the caption holds the name and pack.
+- **New sign artwork:** add a function to `SIGNS` in `js/signs.js`. It receives the current moment in the 30-second demo meeting (`f.inCall`, `f.q` for progress, `f.now` for the clock, and so on) and returns HTML for a 537×380 screen. Then use its name as `data-sign`.
+
+## Deploying
+
+GitHub Pages: Settings → Pages → Deploy from a branch, root folder. Any static host works the same way (Netlify, Vercel, Cloudflare Pages, S3): upload the whole folder.
 
 ## Before publishing
-- The hero background photo slot is empty. Drop the photo into the design and re-export, or it shows as a grey placeholder.
-- The "Download on the App Store" and "Get the app" buttons don't link anywhere yet. Add the App Store URL once the listing exists.
-- Footer links (Support, Privacy, Press kit) point to `#`.
+
+- **Hero photo:** save the desk photo as `images/hero-desk.jpg`, then follow the comment in the hero section of `index.html`.
+- **App Store links:** the "Get the app" and "Download on the App Store" buttons are marked `TODO: App Store URL`.
+- **Footer links:** Support, Privacy and Press kit still point to `#`.
